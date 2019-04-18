@@ -19,4 +19,5 @@ jobs:
       - task: build-task
         file: spboot/ci/build-task.yml
       - put: spboot-docker-image
-        build: spboot
+        params:
+          build: spboot
