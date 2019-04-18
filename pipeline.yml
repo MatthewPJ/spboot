@@ -21,3 +21,11 @@ jobs:
       - put: spboot-docker-image
         params:
           build: spboot
+
+  - name: deploy-pcf-job
+    plan:
+      - get: spboot
+        passed: [build-image-job]
+        trigger: true
+      - task: deploy-task
+        file: spboot/ci/deploy-task.yml

@@ -3,10 +3,11 @@ platform: linux
 
 image_resource:
   type: docker-image
-  source: {repository: java:8}
+  source: {repository: matthewdk/spboot}
 
-inputs:
-  - name: build-output
+#run:
+#  path: ./spboot/ci/task/deploy-task.sh
 
 run:
-  path: ./spboot/ci/task/deploy-task.sh
+  path: uname
+  args: [-a]
