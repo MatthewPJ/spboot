@@ -1,0 +1,14 @@
+resources:
+  - name: spboot
+    type: git
+    source: {uri: "https://github.com/MatthewPJ/spboot.git"}
+
+jobs:
+  - name: build-job
+    plan:
+      - get: spboot
+        trigger: true
+      - task: package-task
+          file: spboot/ci/build-task.yml
+      - task: deploy-task
+          file: spboot/ci/deploy-task.yml
