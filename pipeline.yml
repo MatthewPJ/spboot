@@ -17,6 +17,6 @@ jobs:
       - get: spboot
         trigger: true
       - task: build-task
-          file: spboot/ci/build-task.yml
+        file: spboot/ci/build-task.yml
       - put: spboot-docker-image
-          build: spboot
+        build: spboot
