@@ -3,12 +3,20 @@ resources:
     type: git
     source: {uri: "https://github.com/MatthewPJ/spboot.git"}
 
+  - name: spboot-docker-image
+    type: docker-image
+    source:
+      email: "524948894@qq.com"
+      username: ((docker-hub-username))
+      password: ((docker-hub-password))
+      repository: ((docker-hub-username))/spboot
+
 jobs:
-  - name: build-job
+  - name: build-image-job
     plan:
       - get: spboot
         trigger: true
-      - task: package-task
+      - task: build-task
           file: spboot/ci/build-task.yml
-      - task: deploy-task
-          file: spboot/ci/deploy-task.yml
+      - put: spboot-docker-image
+          build: spboot

@@ -9,7 +9,8 @@ inputs:
   - name: spboot
 
 outputs:
-  - name: build-output
+  - name: spboot
+#  - name: build-output
 
 run:
   path: ./spboot/ci/task/build-task.sh
